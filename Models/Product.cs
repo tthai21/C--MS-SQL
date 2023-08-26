@@ -21,7 +21,16 @@ namespace ef
         public int CategoryId { set; get; }
 
         [ForeignKey("CategoryId")]
-        public Category? Category { set; get; } //Foreign key
+        public virtual Category? Category { set; get; } //Foreign key
+
+        // public int? CategoryId2 { set; get; }
+
+        // [ForeignKey("CategoryId2")]
+        // [InverseProperty("Products")]
+        // public virtual Category? Category2 { set; get; } //Foreign key 
+
+
+
 
         public void PrintInfo()
         {
