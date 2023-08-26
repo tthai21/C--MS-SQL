@@ -13,6 +13,6 @@ namespace ef
         [Column(TypeName = "ntext")]
         public string? Description { set; get; }
 
-        public virtual List<Product>? Products { set; get; }
+        public List<Product>? Products { set; get; }
     }
 }

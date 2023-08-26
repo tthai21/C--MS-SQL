@@ -12,7 +12,7 @@ namespace ef
         [StringLength(50)]
 
         [Column("ProductName", TypeName = "ntext")]
-        public string? Name { get; set; }
+        public string? ProductName { get; set; }
         [Required]
         [Column(TypeName = "money")]
 
@@ -21,7 +21,7 @@ namespace ef
         public int CategoryId { set; get; }
 
         [ForeignKey("CategoryId")]
-        public virtual Category? Category { set; get; } //Foreign key
+        public Category? Category { set; get; } //Foreign key
 
         // public int? CategoryId2 { set; get; }
 
@@ -34,7 +34,7 @@ namespace ef
 
         public void PrintInfo()
         {
-            Console.WriteLine($"{ProductId} - {Name} - {ProductPrice}");
+            Console.WriteLine($"{ProductId} - {ProductName} - {ProductPrice}");
         }
     }
 

@@ -54,50 +54,51 @@ internal class Program
 
         dbContext?.Category?.Add(category1);
         dbContext?.Category?.Add(category2);
+
         var c1 = (from c in dbContext?.Category where c.CategoryId == 1 select c).FirstOrDefault();
         var c2 = (from c in dbContext?.Category where c.CategoryId == 2 select c).FirstOrDefault();
 
         dbContext?.Add(new Product()
         {
-            Name = "Product1",
+            ProductName = "Product1",
             ProductPrice = 1000,
-            Category = c1
+            CategoryId = 1
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product2",
+            ProductName = "Product2",
             ProductPrice = 2000,
-            Category = c1
+            CategoryId = 1
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product3",
+            ProductName = "Product3",
             ProductPrice = 3000,
-            Category = c1
+            CategoryId = 1
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product4",
+            ProductName = "Product4",
             ProductPrice = 4000,
-            Category = c2
+            CategoryId = 2
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product5",
+            ProductName = "Product5",
             ProductPrice = 5000,
-            Category = c2
+            CategoryId = 2
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product6",
+            ProductName = "Product6",
             ProductPrice = 6000,
-            Category = c2
+            CategoryId = 2
         });
         dbContext?.Add(new Product()
         {
-            Name = "Product7",
+            ProductName = "Product7",
             ProductPrice = 7000,
-            Category = c2
+            CategoryId = 2
         });
 
 
@@ -109,22 +110,25 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        DropDatabase();
-        CreateDatabase();
-        InsertData();
+        //    DropDatabase();
+        //    CreateDatabase();
+        //     InsertData();
 
         using var dbContext = new ShopContext();
-        var category = (from c in dbContext.Category where c.CategoryId == 2 select c).FirstOrDefault();
-
-
-        if (category?.Products != null)
+        if (dbContext != null)
         {
-            Console.WriteLine($"Products count : {category.Products.Count()}");
-            category.Products.ForEach(p => p.PrintInfo());
-        }
-        else
-        {
-            Console.WriteLine("No products found");
+
+            var result = from p in dbContext.Products
+                         join c in dbContext.Category on p.CategoryId equals c.CategoryId
+                         select new
+                         {
+                             ProductId = p.ProductId,
+                             Name = p.ProductName,
+                             Price = p.ProductPrice,
+                             Category = c.Name
+                         };
+
+            result.ToList().ForEach(i => Console.WriteLine(i));
         }
 
 
