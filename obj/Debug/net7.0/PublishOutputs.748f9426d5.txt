@@ -1,0 +1,5 @@
+C:\Users\user\Desktop\CS002\bin\Debug\net7.0\publish\CS002.exe
+C:\Users\user\Desktop\CS002\bin\Debug\net7.0\publish\CS002.dll
+C:\Users\user\Desktop\CS002\bin\Debug\net7.0\publish\CS002.deps.json
+C:\Users\user\Desktop\CS002\bin\Debug\net7.0\publish\CS002.runtimeconfig.json
+C:\Users\user\Desktop\CS002\bin\Debug\net7.0\publish\CS002.pdb
