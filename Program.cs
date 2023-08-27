@@ -110,29 +110,9 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        //    DropDatabase();
-        //    CreateDatabase();
+        DropDatabase();
+        CreateDatabase();
         //     InsertData();
-
-        using var dbContext = new ShopContext();
-        if (dbContext != null)
-        {
-
-            var result = from p in dbContext.Products
-                         join c in dbContext.Category on p.CategoryId equals c.CategoryId
-                         select new
-                         {
-                             ProductId = p.ProductId,
-                             Name = p.ProductName,
-                             Price = p.ProductPrice,
-                             Category = c.Name
-                         };
-
-            result.ToList().ForEach(i => Console.WriteLine(i));
-        }
-
-
-
 
     }
 }

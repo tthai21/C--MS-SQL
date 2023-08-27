@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ef
 {
-    [Table("Products")]
     public class Product
     {
-        [Key]
+        // [Key]
         public int ProductId { get; set; }
         [Required]
         [StringLength(50)]
@@ -18,17 +17,12 @@ namespace ef
 
         public decimal ProductPrice { get; set; }
 
-        public int CategoryId { set; get; }
+        public int? CategoryId { set; get; }
 
-        [ForeignKey("CategoryId")]
-        public Category? Category { set; get; } //Foreign key
+        public virtual Category? Category { set; get; } //Foreign key
+        public int? CategoryId2 { set; get; }
 
-        // public int? CategoryId2 { set; get; }
-
-        // [ForeignKey("CategoryId2")]
-        // [InverseProperty("Products")]
-        // public virtual Category? Category2 { set; get; } //Foreign key 
-
+        public virtual Category? Category2 { set; get; } //Foreign key
 
 
 

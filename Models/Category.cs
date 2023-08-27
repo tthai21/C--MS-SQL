@@ -5,7 +5,7 @@ namespace ef
 {
     public class Category
     {
-        [Key]
+        // [Key]
         public int CategoryId { set; get; }
         [StringLength(100)]
         public string? Name { set; get; }
